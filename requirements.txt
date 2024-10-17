@@ -1,4 +1,5 @@
 streamlit
 xgboost
-joblib
+scikit-learn
 pandas
+joblib
