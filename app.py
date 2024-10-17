@@ -67,8 +67,13 @@ label_encoders = {}
 categorical_columns = ['Location', 'WindGustDir', 'WindDir9am', 'WindDir3pm']
 
 for col in categorical_columns:
-    label_encoders[col] = LabelEncoder()
-    input_data[col] = label_encoders[col].fit_transform(input_data[col])
+    # Assuming the label encoders have been fitted on the training data
+    # You may want to fit and save these encoders during the model training
+    if col in label_encoders:
+        input_data[col] = label_encoders[col].transform(input_data[col])
+    else:
+        label_encoders[col] = LabelEncoder()
+        input_data[col] = label_encoders[col].fit_transform(input_data[col])
 
 # Ensure the input data matches the model's expected feature order
 feature_order = [
