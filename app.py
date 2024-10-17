@@ -57,9 +57,9 @@ input_data = pd.DataFrame({
     'Cloud3pm': [Cloud3pm],
     'Temp9am': [Temp9am],
     'Temp3pm': [Temp3pm],
-    'RainToday': [RainToday],
     'Date_month': [Date_month],
-    'Date_day': [Date_day]
+    'Date_day': [Date_day],
+    'RainToday': [RainToday]  # Ensure RainToday is at the end
 })
 
 # Encode categorical variables using LabelEncoder
@@ -67,8 +67,6 @@ label_encoders = {}
 categorical_columns = ['Location', 'WindGustDir', 'WindDir9am', 'WindDir3pm']
 
 for col in categorical_columns:
-    # Assuming the label encoders have been fitted on the training data
-    # You may want to fit and save these encoders during the model training
     if col in label_encoders:
         input_data[col] = label_encoders[col].transform(input_data[col])
     else:
@@ -83,6 +81,8 @@ feature_order = [
     'Pressure9am', 'Pressure3pm', 'Cloud9am', 'Cloud3pm',
     'Temp9am', 'Temp3pm', 'Date_month', 'Date_day', 'RainToday'
 ]
+
+# Rearrange the DataFrame to match feature order
 input_data = input_data[feature_order]
 
 # Button to make the prediction
