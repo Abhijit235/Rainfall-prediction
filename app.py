@@ -6,6 +6,9 @@ import joblib
 # Load the trained model
 xgb_model = joblib.load('xgb.pkl')  # Adjust the path if necessary
 
+# Print feature names from the model for debugging
+print("Model feature names:", xgb_model.get_booster().feature_names)
+
 # Function to convert categorical variables
 def preprocess_input(data):
     # Convert categorical variables to numerical values
@@ -72,6 +75,16 @@ input_data = pd.DataFrame({
     'Date_day': [Date_day],
     'RainToday': [RainToday]  # Ensure RainToday is last
 })
+
+# Reorder the input_data DataFrame based on the expected feature order
+feature_order = [
+    'Location', 'MinTemp', 'MaxTemp', 'Rainfall', 'Evaporation', 'Sunshine',
+    'WindGustDir', 'WindGustSpeed', 'WindDir9am', 'WindDir3pm',
+    'WindSpeed9am', 'WindSpeed3pm', 'Humidity9am', 'Humidity3pm',
+    'Pressure9am', 'Pressure3pm', 'Cloud9am', 'Cloud3pm',
+    'Temp9am', 'Temp3pm', 'Date_month', 'Date_day', 'RainToday'
+]
+input_data = input_data[feature_order]
 
 # Preprocess the input data
 input_data = preprocess_input(input_data)
