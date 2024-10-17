@@ -12,7 +12,7 @@ import pandas as pd
 import pickle
 
 # Load your trained model (make sure the model file is in the same directory)
-with open('xgb_model.pkl', 'rb') as file:
+with open('xgb.pkl', 'rb') as file:
     xgb_model = pickle.load(file)
 
 # Define function to make predictions
