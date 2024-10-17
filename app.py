@@ -46,28 +46,28 @@ Date_month = st.number_input("Date Month", value=10)  # Example for October
 Date_day = st.number_input("Date Day", value=17)  # Example for 17th
 RainToday = st.number_input("Rain Today (0 for No, 1 for Yes)", value=0)  # Adjust as necessary
 
-# Prepare the input data as a DataFrame
+# Prepare the input data as a DataFrame in the correct order
 input_data = pd.DataFrame({
+    'Location': [Location],
     'MinTemp': [MinTemp],
     'MaxTemp': [MaxTemp],
     'Rainfall': [Rainfall],
     'Evaporation': [Evaporation],
     'Sunshine': [Sunshine],
+    'WindGustDir': [WindGustDir],
     'WindGustSpeed': [WindGustSpeed],
+    'WindDir9am': [WindDir9am],
+    'WindDir3pm': [WindDir3pm],
     'WindSpeed9am': [WindSpeed9am],
     'WindSpeed3pm': [WindSpeed3pm],
     'Humidity9am': [Humidity9am],
     'Humidity3pm': [Humidity3pm],
     'Pressure9am': [Pressure9am],
     'Pressure3pm': [Pressure3pm],
-    'Temp9am': [Temp9am],
-    'Temp3pm': [Temp3pm],
-    'Location': [Location],
-    'WindGustDir': [WindGustDir],
-    'WindDir9am': [WindDir9am],
-    'WindDir3pm': [WindDir3pm],
     'Cloud9am': [Cloud9am],
     'Cloud3pm': [Cloud3pm],
+    'Temp9am': [Temp9am],
+    'Temp3pm': [Temp3pm],
     'Date_month': [Date_month],
     'Date_day': [Date_day],
     'RainToday': [RainToday]
