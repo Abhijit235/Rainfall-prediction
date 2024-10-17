@@ -70,7 +70,7 @@ input_data = pd.DataFrame({
     'Temp3pm': [Temp3pm],
     'Date_month': [Date_month],
     'Date_day': [Date_day],
-    'RainToday': [RainToday]
+    'RainToday': [RainToday]  # Ensure RainToday is last
 })
 
 # Preprocess the input data
