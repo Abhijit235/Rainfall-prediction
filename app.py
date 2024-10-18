@@ -1,46 +1,37 @@
 import streamlit as st
 import pickle
 import pandas as pd
-import xgboost as xgb
 
-# Load the model
+# Load the trained XGBoost model from the pickle file
 with open("xgb.pkl", "rb") as f:
     model = pickle.load(f)
 
-# Function to encode categorical features
+# Function to encode and preprocess the input data
 def preprocess_input(data):
-    # Convert categorical data using label encoding or mapping
+    # Convert categorical variables to numeric codes
     data["RainToday"] = data["RainToday"].map({"Yes": 1, "No": 0})
-
-    # Encode other categorical features (you can extend this as needed)
+    
     data["Location"] = pd.Categorical(data["Location"]).codes
     data["WindGustDir"] = pd.Categorical(data["WindGustDir"]).codes
     data["WindDir9am"] = pd.Categorical(data["WindDir9am"]).codes
     data["WindDir3pm"] = pd.Categorical(data["WindDir3pm"]).codes
-    
-    # Drop the Date if it's irrelevant for the prediction model
+
+    # Drop the Date column (if not required by the model)
     data = data.drop("Date", axis=1)
 
     return data
-
-# Function to make predictions
-def predict_rainfall(data):
-    # Convert to DMatrix and enable categorical support
-    dmatrix = xgb.DMatrix(data, enable_categorical=True)
-    prediction = model.predict(dmatrix)[0]
-    return "Yes" if prediction == 1 else "No"
 
 # Streamlit app interface
 st.title("Rainfall Prediction App 🌧️")
 st.write("Provide the required input data to predict if it will rain tomorrow.")
 
-# Collect inputs
+# Input fields for the user to enter data
 Date = st.text_input("Date (YYYY-MM-DD)")
 Location = st.text_input("Location")
 MinTemp = st.number_input("Min Temperature", step=0.1)
 MaxTemp = st.number_input("Max Temperature", step=0.1)
 Rainfall = st.number_input("Rainfall (mm)", step=0.1)
-Evaporation = st.number_input("Evaporation", step=0.1)
+Evaporation = st.number_input("Evaporation (mm)", step=0.1)
 Sunshine = st.number_input("Sunshine (hours)", step=0.1)
 WindGustDir = st.text_input("Wind Gust Direction")
 WindGustSpeed = st.number_input("Wind Gust Speed (km/h)", step=0.1)
@@ -58,7 +49,7 @@ Temp9am = st.number_input("Temperature at 9 AM (°C)", step=0.1)
 Temp3pm = st.number_input("Temperature at 3 PM (°C)", step=0.1)
 RainToday = st.selectbox("Did it rain today?", ["Yes", "No"])
 
-# Prepare input data
+# Prepare the input data as a DataFrame
 data = pd.DataFrame([[
     Date, Location, MinTemp, MaxTemp, Rainfall, Evaporation, Sunshine, 
     WindGustDir, WindGustSpeed, WindDir9am, WindDir3pm, WindSpeed9am, 
@@ -72,8 +63,11 @@ data = pd.DataFrame([[
     "Temp3pm", "RainToday"
 ])
 
-# Preprocess and predict
+# Preprocess the input data
 data = preprocess_input(data)
+
+# Make predictions when the "Predict" button is clicked
 if st.button("Predict"):
-    result = predict_rainfall(data)
+    prediction = model.predict(data)[0]
+    result = "Yes" if prediction == 1 else "No"
     st.subheader(f"Prediction: Will it rain tomorrow? {result}")
