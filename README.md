@@ -6,7 +6,8 @@ Explore the live demo of this app deployed using Streamlit through the link belo
 
 🔗 [Live Demo](https://rainfall-prediction-6vjxfrhyyqe4lph8ufvt5m.streamlit.app/)
 
-Project Overview
+Project Overview:
+
 Accurate rainfall prediction is crucial for sectors like agriculture, water management, and disaster preparedness. In this project, I developed a predictive model using the XGBoost algorithm trained on weather data from the National Center for Atmospheric Research (NCAR).
 
 The features include key meteorological variables such as temperature, humidity, wind speed, cloud cover, and more, making the prediction both reliable and insightful.
