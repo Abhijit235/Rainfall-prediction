@@ -24,6 +24,7 @@ Provides high accuracy in rainfall prediction.
 
 Responsive Design:
 The app works on both desktop and mobile devices.
+
 Technologies Used:
 Python
 XGBoost for machine learning
