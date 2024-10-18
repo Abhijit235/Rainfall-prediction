@@ -15,16 +15,14 @@ In this project, I developed a predictive model using the XGBoost algorithm trai
 The features include key meteorological variables such as temperature, humidity, wind speed, cloud cover, and more, making the prediction both reliable and insightful.
 
 Features of the App
-User-Friendly Interface:
-
-Built with Streamlit for a seamless user experience.
+User-Friendly Interface: Built with Streamlit for a seamless user experience.
 Enter weather conditions, and the app instantly predicts if it will rain tomorrow.
-XGBoost Model:
 
+XGBoost Model:
 Trained with carefully preprocessed weather data.
 Provides high accuracy in rainfall prediction.
-Responsive Design:
 
+Responsive Design:
 The app works on both desktop and mobile devices.
 Technologies Used
 Python
