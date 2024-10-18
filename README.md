@@ -46,7 +46,7 @@ Run the app:
 bash
 Copy code
 streamlit run app.py
-Open the browser at http://localhost:8501 to access the app.
+Open the browser at [https://rainfall-prediction-6vjxfrhyyqe4lph8ufvt5m.streamlit.app/] to access the app.
 
 Model Details
 Dataset: The data comes from NCAR's publicly available Australian weather data.
