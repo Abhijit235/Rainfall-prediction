@@ -67,10 +67,16 @@ Project Structure
 
 rainfall-prediction/
 │
-├── app.py               # Streamlit app code
-├── xgb.pkl              # Trained XGBoost model
-├── requirements.txt     # List of dependencies
-└── README.md            # Project documentation
+
+├── app.py  
+# Streamlit app code
+├── xgb.pkl    
+# Trained XGBoost model
+├── requirements.txt  
+# List of dependencies
+└── README.md         
+# Project documentation
+
 Live Demo
 🚀 Check out the live app here: Rainfall Prediction App(https://rainfall-prediction-6vjxfrhyyqe4lph8ufvt5m.streamlit.app/)
 
