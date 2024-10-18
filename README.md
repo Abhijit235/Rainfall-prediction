@@ -24,12 +24,13 @@ Provides high accuracy in rainfall prediction.
 
 Responsive Design:
 The app works on both desktop and mobile devices.
-Technologies Used
+Technologies Used:
 Python
 XGBoost for machine learning
 Streamlit for app deployment
 Pandas for data preprocessing
 GitHub for version control and project management
+
 How to Run the App Locally
 
 Clone the repository:
