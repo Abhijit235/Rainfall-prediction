@@ -43,14 +43,14 @@ Install dependencies:
 bash
 Copy code
 pip install -r requirements.txt
-Run the app:
 
+# Run the app:
 bash
 Copy code
 streamlit run app.py
 Open the browser at [https://rainfall-prediction-6vjxfrhyyqe4lph8ufvt5m.streamlit.app/] to access the app.
 
-Model Details:
+# Model Details:
 
 Dataset: The data comes from NCAR's publicly available Australian weather data.
 
