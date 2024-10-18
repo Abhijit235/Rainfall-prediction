@@ -39,6 +39,7 @@ Clone the repository:
 bash
 Copy code
 git clone https://github.com/your-username/rainfall-prediction
+
 cd rainfall-prediction
 Install dependencies:
 
