@@ -77,15 +77,21 @@ rainfall-prediction/
 └── README.md         
 
 
+
 Live Demo
+
 🚀 Check out the live app here: Rainfall Prediction App(https://rainfall-prediction-6vjxfrhyyqe4lph8ufvt5m.streamlit.app/)
 
-How This Project Helps Me Get Placed 💼
+
 This project demonstrates my ability to work on end-to-end machine learning projects, including:
 
 Data Preprocessing: Handling missing values, encoding categorical data, and feature engineering.
+
 Model Development: Building and tuning predictive models with XGBoost.
+
 Web Deployment: Creating interactive and responsive apps with Streamlit.
+
 Collaboration on GitHub: Managing code and documentation effectively.
+
 I believe this project highlights my technical expertise and problem-solving skills, and I hope it showcases my potential to future employers.
 
