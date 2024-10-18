@@ -49,18 +49,22 @@ Copy code
 streamlit run app.py
 Open the browser at [https://rainfall-prediction-6vjxfrhyyqe4lph8ufvt5m.streamlit.app/] to access the app.
 
-Model Details
+Model Details:
+
 Dataset: The data comes from NCAR's publicly available Australian weather data.
 Target Variable: RainTomorrow – A binary classification to determine if it will rain tomorrow (Yes or No).
+
 Key Features:
 Temperature: MinTemp, MaxTemp, Temp9am, Temp3pm
 Humidity: Humidity9am, Humidity3pm
 Wind: WindGustDir, WindGustSpeed, WindDir9am, WindDir3pm
 Cloud Cover: Cloud9am, Cloud3pm
 Rainfall, Evaporation, and Sunshine hours
+
+
 Project Structure
-plaintext
-Copy code
+
+
 rainfall-prediction/
 │
 ├── app.py               # Streamlit app code
