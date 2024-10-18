@@ -31,6 +31,7 @@ Streamlit for app deployment
 Pandas for data preprocessing
 GitHub for version control and project management
 How to Run the App Locally
+
 Clone the repository:
 
 bash
