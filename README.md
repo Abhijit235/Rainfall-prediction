@@ -66,7 +66,7 @@ Rainfall, Evaporation, and Sunshine hours
 
 
 rainfall-prediction
-│
+
 # Streamlit app code
 ├── app.py  
 # Trained XGBoost model
