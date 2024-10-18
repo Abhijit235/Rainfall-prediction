@@ -6,7 +6,7 @@ Explore the live demo of this app deployed using Streamlit through the link belo
 
 🔗 [Live Demo](https://rainfall-prediction-6vjxfrhyyqe4lph8ufvt5m.streamlit.app/)
 
-Project Overview:
+# Project Overview:
 
 Accurate rainfall prediction is crucial for sectors like agriculture, water management, and disaster preparedness. In this project, I developed a predictive model using the XGBoost algorithm trained on weather data from the National Center for Atmospheric Research (NCAR).
 
@@ -62,10 +62,10 @@ Cloud Cover: Cloud9am, Cloud3pm
 Rainfall, Evaporation, and Sunshine hours
 
 
-Project Structure
+# Project Structure
 
 
-rainfall-prediction/
+rainfall-prediction
 │
 # Streamlit app code
 ├── app.py  
@@ -78,7 +78,7 @@ rainfall-prediction/
 
 
 
-Live Demo
+# Live Demo
 
 🚀 Check out the live app here: Rainfall Prediction App(https://rainfall-prediction-6vjxfrhyyqe4lph8ufvt5m.streamlit.app/)
 
