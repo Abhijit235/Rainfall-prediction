@@ -6,17 +6,21 @@ import pandas as pd
 with open("xgb.pkl", "rb") as f:
     model = pickle.load(f)
 
-# Function to encode and preprocess the input data
+# Function to encode, extract date features, and preprocess input data
 def preprocess_input(data):
+    # Extract month and day from the Date column
+    data["Date"] = pd.to_datetime(data["Date"])
+    data["Date_month"] = data["Date"].dt.month
+    data["Date_day"] = data["Date"].dt.day
+
     # Convert categorical variables to numeric codes
     data["RainToday"] = data["RainToday"].map({"Yes": 1, "No": 0})
-    
     data["Location"] = pd.Categorical(data["Location"]).codes
     data["WindGustDir"] = pd.Categorical(data["WindGustDir"]).codes
     data["WindDir9am"] = pd.Categorical(data["WindDir9am"]).codes
     data["WindDir3pm"] = pd.Categorical(data["WindDir3pm"]).codes
 
-    # Drop the Date column (if not required by the model)
+    # Drop the original Date column (not needed for predictions)
     data = data.drop("Date", axis=1)
 
     return data
