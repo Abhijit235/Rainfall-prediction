@@ -1,14 +1,33 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import xgboost as xgb
 
 # Load the model
 with open("xgb.pkl", "rb") as f:
     model = pickle.load(f)
 
+# Function to encode categorical features
+def preprocess_input(data):
+    # Convert categorical data using label encoding or mapping
+    data["RainToday"] = data["RainToday"].map({"Yes": 1, "No": 0})
+
+    # Encode other categorical features (you can extend this as needed)
+    data["Location"] = pd.Categorical(data["Location"]).codes
+    data["WindGustDir"] = pd.Categorical(data["WindGustDir"]).codes
+    data["WindDir9am"] = pd.Categorical(data["WindDir9am"]).codes
+    data["WindDir3pm"] = pd.Categorical(data["WindDir3pm"]).codes
+    
+    # Drop the Date if it's irrelevant for the prediction model
+    data = data.drop("Date", axis=1)
+
+    return data
+
 # Function to make predictions
 def predict_rainfall(data):
-    prediction = model.predict(data)[0]
+    # Convert to DMatrix and enable categorical support
+    dmatrix = xgb.DMatrix(data, enable_categorical=True)
+    prediction = model.predict(dmatrix)[0]
     return "Yes" if prediction == 1 else "No"
 
 # Streamlit app interface
@@ -44,7 +63,7 @@ data = pd.DataFrame([[
     Date, Location, MinTemp, MaxTemp, Rainfall, Evaporation, Sunshine, 
     WindGustDir, WindGustSpeed, WindDir9am, WindDir3pm, WindSpeed9am, 
     WindSpeed3pm, Humidity9am, Humidity3pm, Pressure9am, Pressure3pm, 
-    Cloud9am, Cloud3pm, Temp9am, Temp3pm, 1 if RainToday == "Yes" else 0
+    Cloud9am, Cloud3pm, Temp9am, Temp3pm, RainToday
 ]], columns=[
     "Date", "Location", "MinTemp", "MaxTemp", "Rainfall", "Evaporation", 
     "Sunshine", "WindGustDir", "WindGustSpeed", "WindDir9am", "WindDir3pm", 
@@ -53,8 +72,8 @@ data = pd.DataFrame([[
     "Temp3pm", "RainToday"
 ])
 
-# Button to trigger prediction
+# Preprocess and predict
+data = preprocess_input(data)
 if st.button("Predict"):
     result = predict_rainfall(data)
     st.subheader(f"Prediction: Will it rain tomorrow? {result}")
-
